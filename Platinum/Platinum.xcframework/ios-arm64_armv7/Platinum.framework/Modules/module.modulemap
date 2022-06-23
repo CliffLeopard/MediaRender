@@ -1,6 +1,0 @@
-framework module Platinum {
-  umbrella header "Platinum.h"
-
-  export *
-  module * { export * }
-}

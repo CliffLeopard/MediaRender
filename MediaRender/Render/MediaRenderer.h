@@ -8,8 +8,8 @@
 #ifndef PLATINUMMEDIA_MEDIARENDER_H
 #define PLATINUMMEDIA_MEDIARENDER_H
 
-#include <Platinum/Platinum.h>
-#include <Platinum/PltMediaRenderer.h>
+#include "Platinum.h"
+#include "PltMediaRenderer.h"
 
 class MediaRenderer : public PLT_MediaRenderer {
 public:

@@ -8,7 +8,7 @@
 #ifndef PLATINUMMEDIA_DLNASERVER_H
 #define PLATINUMMEDIA_DLNASERVER_H
 
-#include <Platinum/PltUPnP.h>
+#include "PltUPnP.h"
 #include "MediaRenderer.h"
 
 class RenderServer {

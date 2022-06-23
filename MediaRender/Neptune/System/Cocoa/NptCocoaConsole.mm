@@ -19,9 +19,9 @@
 /*----------------------------------------------------------------------
 |       NPT_Console::Output
 +---------------------------------------------------------------------*/
-void
-NPT_Console::Output(const char* message)
-{
-    NSLog(@"%@", [@(message) stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]);
-}
+//void
+//NPT_Console::Output(const char* message)
+//{
+//    NSLog(@"%@", [@(message) stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]);
+//}
 
