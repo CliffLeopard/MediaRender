@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct MDRCaseApp: App {
+struct MediaRenderApp: App {
     var body: some Scene {
         WindowGroup {
             NetWorkView()

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C2319DE286F0313000C50FB /* SendBackProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2319DD286F0313000C50FB /* SendBackProtocal.swift */; };
-		3C52C8BB283DCA6200CD5398 /* MDRCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52C8BA283DCA6200CD5398 /* MDRCaseApp.swift */; };
+		3C52C8BB283DCA6200CD5398 /* MeidaRenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52C8BA283DCA6200CD5398 /* MeidaRenderApp.swift */; };
 		3C52C8BD283DCA6200CD5398 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52C8BC283DCA6200CD5398 /* ContentView.swift */; };
 		3C52C8BF283DCA6300CD5398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C52C8BE283DCA6300CD5398 /* Assets.xcassets */; };
 		3C52C8C2283DCA6300CD5398 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C52C8C1283DCA6300CD5398 /* Preview Assets.xcassets */; };
@@ -82,7 +82,7 @@
 /* Begin PBXFileReference section */
 		3C2319DD286F0313000C50FB /* SendBackProtocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBackProtocal.swift; sourceTree = "<group>"; };
 		3C52C8B7283DCA6200CD5398 /* MediaRender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaRender.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C52C8BA283DCA6200CD5398 /* MDRCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDRCaseApp.swift; sourceTree = "<group>"; };
+		3C52C8BA283DCA6200CD5398 /* MeidaRenderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeidaRenderApp.swift; sourceTree = "<group>"; };
 		3C52C8BC283DCA6200CD5398 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3C52C8BE283DCA6300CD5398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C52C8C1283DCA6300CD5398 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				3C52C8FE283DE42200CD5398 /* Render */,
 				3CB3F3702844EF8900B46801 /* View */,
 				3C2319DC286F024A000C50FB /* VM */,
-				3C52C8BA283DCA6200CD5398 /* MDRCaseApp.swift */,
+				3C52C8BA283DCA6200CD5398 /* MeidaRenderApp.swift */,
 				3C5482A92859EE720096D27E /* MediaSourceCenter.swift */,
 				3C52C954283F30BD00CD5398 /* RenderCenter.swift */,
 				3CC77565286325B500B08978 /* RenderCenter+Sender.swift */,
@@ -472,7 +472,7 @@
 				3C5482B3285B1A400096D27E /* AliPlayerVM+RenderReceiver.swift in Sources */,
 				3C52C925283E17AC00CD5398 /* RenderServer.cpp in Sources */,
 				3CB3F36D2844E93E00B46801 /* RenderEventParser.swift in Sources */,
-				3C52C8BB283DCA6200CD5398 /* MDRCaseApp.swift in Sources */,
+				3C52C8BB283DCA6200CD5398 /* MeidaRenderApp.swift in Sources */,
 				3C2319DE286F0313000C50FB /* SendBackProtocal.swift in Sources */,
 				3C52C95B283F57A200CD5398 /* RenderEventReceiver.mm in Sources */,
 				3C5482A82859D9750096D27E /* LoadingView.swift in Sources */,
