@@ -16,6 +16,8 @@ struct LoadingView : View {
         if touching {
             GeometryReader { geometry in
                 Image("暂停")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width, height: geometry.size.height)
             }
         } else {
@@ -38,6 +40,8 @@ struct LoadingView : View {
                 // 播放暂停
                 GeometryReader { geometry in
                     Image("播放")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: geometry.size.height)
                 }
             case .stoped:

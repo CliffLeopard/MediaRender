@@ -21,19 +21,6 @@ class RenderCenter : NSObject {
         RenderBridge.initBridge(RenderCenter.share)
     }
     
-
-    func addRenderReceiver(receiver:RenderReceiverProtocal){
-        self.removeReceiver(receiver: receiver)
-        self.receivers.append(receiver)
-    }
-    
-    func removeReceiver(receiver:RenderReceiverProtocal){
-        self.receivers.removeAll { aRecevier in
-            return aRecevier.hashValue() == receiver.hashValue()
-        }
-    }
-    
-    
     private override init() {}
     override class func copy() -> Any { return share ?? "nil" }
     override class func mutableCopy() -> Any { return share ?? "nil"}

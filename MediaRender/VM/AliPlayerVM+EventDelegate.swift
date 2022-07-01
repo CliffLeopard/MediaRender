@@ -15,7 +15,7 @@ extension AliPlayerVM:AVPDelegate {
             // 准备完成
             debugPrint("onPlayerEvent","准备完成")
             self.duration  = self.player.duration;
-            RenderCenter.share.setMediaDuration(duration: duration)
+            self.backSender?.setMediaDuration(duration: duration)
             debugPrint("onPlayerEvent","视频总时长:", duration)
         case AVPEventAutoPlayStart:
             //自动播放开始事件
@@ -24,20 +24,21 @@ extension AliPlayerVM:AVPDelegate {
             //首帧显示
             debugPrint("onPlayerEvent"," 首帧显示")
         case AVPEventCompletion:
-            // 播放完成
-            self.state = .complete
+            // 播放完成
+            changeState(.complete)
             debugPrint("onPlayerEvent","播放完成")
         case AVPEventLoadingStart:
             // 缓冲开始
-            self.state = .loading
+            changeState(.loading)
             debugPrint("onPlayerEvent","缓冲开始")
         case AVPEventLoadingEnd:
             // 缓冲完成
-            self.state = .playing
+            changeState(.playing)
             debugPrint("onPlayerEvent","缓冲完成")
+            self.play()
         case AVPEventSeekEnd:
             // 跳转完成
-            self.state = .playing
+            changeState(.playing)
             debugPrint("onPlayerEvent","跳转完成")
         case AVPEventLoopingStart:
             // 循环播放开始
@@ -53,9 +54,7 @@ extension AliPlayerVM:AVPDelegate {
         switch newStatus {
         case AVPStatusIdle:
             // 空转, 闲时，静态
-//            self.state = .pause
-            self.state = .idle
-            RenderCenter.share.setMeidaPlayubgState(state: "PAUSED_PLAYBACK")
+            changeState(.idle)
         case AVPStatusInitialzed:
             // 初始化完成
             break
@@ -64,31 +63,41 @@ extension AliPlayerVM:AVPDelegate {
             break
         case AVPStatusStarted:
             // 正在播放
-            self.state = .playing
-            RenderCenter.share.setMeidaPlayubgState(state: "PLAYING")
-            break
+            changeState(.playing)
         case AVPStatusPaused:
             // 播放暂停
-            self.state = .pausing
-            RenderCenter.share.setMeidaPlayubgState(state: "PAUSED_PLAYBACK")
-            break
+            changeState(.pausing)
         case AVPStatusStopped:
             // 播放停止
-            self.state = .stoped
-            RenderCenter.share.setMeidaPlayubgState(state: "STOPPED")
-            break
+            changeState(.stoped)
         case AVPStatusCompletion:
             // 播放完成
-            self.state = .complete
-            RenderCenter.share.setMeidaPlayubgState(state: "STOPPED")
-            break
+            changeState(.complete)
         case AVPStatusError:
             // 播放错误
-            self.state = .error
-            RenderCenter.share.setMeidaPlayubgState(state: "NO_MEDIA_PRESENT")
-            break
+            changeState(.error)
         default:
             break
+        }
+    }
+    
+    func changeState(_ state:VideoState){
+        self.state = state
+        switch state {
+        case .idle:
+            self.backSender?.setMeidaPlayState(state: "PAUSED_PLAYBACK")
+        case .loading:
+            break
+        case .playing:
+            self.backSender?.setMeidaPlayState(state: "PLAYING")
+        case .pausing:
+            self.backSender?.setMeidaPlayState(state: "PAUSED_PLAYBACK")
+        case .stoped:
+            self.backSender?.setMeidaPlayState(state: "STOPPED")
+        case .complete:
+            self.backSender?.setMeidaPlayState(state: "STOPPED")
+        case .error:
+            self.backSender?.setMeidaPlayState(state: "NO_MEDIA_PRESENT")
         }
     }
     
@@ -100,24 +109,20 @@ extension AliPlayerVM:AVPDelegate {
     
     // 错误代理回调
     func onError(_ player: AliPlayer!, errorModel: AVPErrorModel!) {
-//        self.state = .loading
+        //        self.state = .loading
     }
     
     // 视频大小变化回调
     func onVideoSizeChanged(_ player: AliPlayer!, width: Int32, height: Int32, rotation: Int32) {
-//        debugPrint("onVideoSizeChanged",width)
-//        debugPrint("onVideoSizeChanged", height)
-//        debugPrint("onVideoSizeChanged", rotation)
         self.height = self.width * (CGFloat(height) / CGFloat(width))
-
     }
     
     // 视频当前播放位置回调
     func onCurrentPositionUpdate(_ player: AliPlayer!, position: Int64) {
         if self.duration != -1 {
-            RenderCenter.share.setMediaDuration(duration: duration)
+            self.backSender?.setMediaDuration(duration: duration)
         }
-        RenderCenter.share.setMediaPosition(position: position)
+        self.backSender?.setMediaPosition(position: position)
     }
     
     // 视频当前播放内容对应的utc时间回调
@@ -185,7 +190,6 @@ extension AliPlayerVM:AVPDelegate {
         
     }
     
-
     
     // 获取截图回调
     func onCaptureScreen(_ player: AliPlayer!, image: UIImage!) {
@@ -201,5 +205,4 @@ extension AliPlayerVM:AVPDelegate {
     func onVideoRendered(_ player: AliPlayer!, timeMs: Int64, pts: Int64) {
         
     }
-    
 }

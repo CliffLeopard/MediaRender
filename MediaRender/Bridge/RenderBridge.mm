@@ -71,9 +71,9 @@ static id<RenderEventProtocal>  receiver;
 
 // 事件回调
 + (void) onEvent:(int) type param1:(const char*) p1 param2:(const char*)p2  param3:(const char*)p3 {
-    NSString * str1 = [[NSString alloc] initWithFormat:@"%s",p1];
-    NSString * str2 = [[NSString alloc] initWithFormat:@"%s",p2];
-    NSString * str3 = [[NSString alloc] initWithFormat:@"%s",p3];
+    NSString * str1 = [[NSString alloc] initWithCString:p1 encoding:NSUTF8StringEncoding];
+    NSString * str2 = [[NSString alloc] initWithCString:p2 encoding:NSUTF8StringEncoding];
+    NSString * str3 = [[NSString alloc] initWithCString:p3 encoding:NSUTF8StringEncoding];
     Logger::log("onEvent:[%d],  param1:[%s], param2:[%s], param3:[%s]",type, p1, p2, p3);
     [receiver onEvent:type param1:str1  param2:str2 param3:str3];
     

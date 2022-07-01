@@ -11,8 +11,9 @@ import UIKit
 
 
 struct AliVideoView: View {
-//    let url = "https://alivc-demo-cms.alicdn.com/video/videoAD.mp4"
-    @EnvironmentObject var vm:AliPlayerVM
+//    let url = "https://alivc-demo-cms.alicdn.com/video/videoAD.mp4"    @StateObject var vm:AliPlayerVM
+    @StateObject var vm:AliPlayerVM
+    var mediaInfo : MediaInfo? = nil
     var body: some View {
         AVideoView(vm: self.vm)
             .frame(height: vm.height, alignment: .center)
@@ -25,9 +26,23 @@ struct AliVideoView: View {
                 }
                 return AnyView(EmptyView())
             })
-            .overlay(LoadingView(state: self.$vm.state,touching: self.$vm.touching).foregroundColor(Color.white).frame(width: 40, height: 40, alignment: .center))
+            .overlay(
+                LoadingView(state: self.$vm.state,touching: self.$vm.touching)
+                    .foregroundColor(Color.white)
+                    .frame(width: 40, height: 40, alignment: .center)
+            )
             .onTapGesture {
                 onTouch()
+            }
+            .onAppear {
+                vm.backSender?.addRenderReceiver(receiver: vm)
+                if let info = self.mediaInfo {
+                    vm.onSetAVTransportUri(info)
+                    vm.onPlay(info)
+                }
+            }
+            .onDisappear {
+                vm.backSender?.removeReceiver(receiver: vm)
             }
     }
     

@@ -8,6 +8,8 @@
 import Foundation
 
 class AliPlayerVM : NSObject,ObservableObject {
+    let mdr:Bool
+    var backSender:SendBackProtocal?
     var player:AliPlayer
     var duration:Int64 = -1
     let bounds =  UIScreen.main.bounds
@@ -16,8 +18,14 @@ class AliPlayerVM : NSObject,ObservableObject {
     @Published var height:CGFloat
     @Published var state:VideoState = .idle
     @Published var touching:Bool = false
-  
-    override init() {
+    
+    init(_ mdr:Bool = false) {
+        self.mdr = mdr
+        if mdr {
+            backSender = RenderCenter.share
+        } else {
+            backSender = nil
+        }
         self.player = AliPlayer("DisableAnalytics")
         self.width = bounds.width
         self.height = 200
@@ -67,7 +75,15 @@ class AliPlayerVM : NSObject,ObservableObject {
     /// 设置视频清晰度
     func setTrack(_ track: AVPTrackInfo) {
         self.player.selectTrack(track.trackIndex)
-        
     }
-    
+}
+
+enum VideoState:Int {
+    case idle      // 闲置中
+    case loading   // 加载中
+    case playing   // 播放中
+    case pausing   // 暂停中
+    case stoped    // 播放停止
+    case complete  // 播放完成
+    case error     // 播放错误
 }

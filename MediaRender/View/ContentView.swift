@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    let controller: AliPlayerVM = AliPlayerVM()
+    let controller: AliPlayerVM = AliPlayerVM(true)
     @EnvironmentObject var sourceCenter:MeidaSourceCenter
     var body: some View {
         VStack{
-            AliVideoView()
-                .environmentObject(controller)
-            
+            AliVideoView(vm:controller)
             Spacer()
             Button(action: {
                 RenderCenter.share.start()

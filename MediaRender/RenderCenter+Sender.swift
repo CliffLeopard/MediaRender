@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension RenderCenter {
+extension RenderCenter  : SendBackProtocal{
     func start() {
         let params = buildRenderParam()
         let result = RenderBridge.start(params)
@@ -36,8 +36,19 @@ extension RenderCenter {
         self.execute(cmd: 1012,p1: self.msToStr(position))
     }
 
-    func setMeidaPlayubgState(state:String) {
+    func setMeidaPlayState(state:String) {
         self.execute(cmd: 1013 ,p1:state)
+    }
+    
+    func addRenderReceiver(receiver:RenderReceiverProtocal){
+        self.removeReceiver(receiver: receiver)
+        self.receivers.append(receiver)
+    }
+    
+    func removeReceiver(receiver:RenderReceiverProtocal){
+        self.receivers.removeAll { aRecevier in
+            return aRecevier.hashValue() == receiver.hashValue()
+        }
     }
     
     func execute(cmd:Int32, p1:String = "" , p2:String = "" , p3:String = "") {
