@@ -1,13 +1,13 @@
 //
-//  MDRCaseUITestsLaunchTests.swift
-//  MDRCaseUITests
+//  MediaRenderUITestsLaunchTests.swift
+//  MediaRenderUITests
 //
 //  Created by CliffLeopard on 2022/5/25.
 //
 
 import XCTest
 
-class MDRCaseUITestsLaunchTests: XCTestCase {
+class MediaRenderUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

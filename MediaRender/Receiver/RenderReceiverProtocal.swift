@@ -1,6 +1,6 @@
 //
 //  RenderReceiverProtocal.swift
-//  MDRCase
+//  MediaRender
 //
 //  Created by CliffLeopard on 2022/6/16.
 //

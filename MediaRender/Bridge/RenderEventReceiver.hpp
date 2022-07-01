@@ -1,6 +1,6 @@
 //
 //  RenderEventReceiver.h
-//  MDRCase
+//  MediaRender
 //
 //  Created by CliffLeopard on 2022/5/26.
 //  此类用于 C++ 回调 OC 代码。 文件格式为OC,内容格式为C++

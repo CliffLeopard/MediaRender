@@ -1,6 +1,6 @@
 //
 //  RenderSender.swift
-//  MDRCase
+//  MediaRender
 //
 //  Created by CliffLeopard on 2022/6/22.
 //  向视频源设备发送消息。上报当前播放状态

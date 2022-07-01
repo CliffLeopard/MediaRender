@@ -1,6 +1,6 @@
 //
 //  ReceiverCenter.swift
-//  MDRCase
+//  MediaRender
 //
 //  Created by CliffLeopard on 2022/6/16.
 //  接收并解析视频源发送来的消息，解析视频和处理播放状态

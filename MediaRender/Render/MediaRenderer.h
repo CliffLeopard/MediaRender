@@ -1,6 +1,6 @@
 //
 //  MediaRenderer.h
-//  MDRCase
+//  MediaRender
 //
 //  Created by CliffLeopard on 2022/5/25.
 //

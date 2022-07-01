@@ -1,6 +1,6 @@
 //
 //  RenderEventReceiver.m
-//  MDRCase
+//  MediaRender
 //
 //  Created by CliffLeopard on 2022/5/26.
 //  此类用于C++ 回调 OC 代码

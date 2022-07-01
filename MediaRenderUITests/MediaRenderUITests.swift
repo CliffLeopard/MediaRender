@@ -1,13 +1,13 @@
 //
-//  MDRCaseUITests.swift
-//  MDRCaseUITests
+//  MediaRenderUITests.swift
+//  MediaRenderUITests
 //
 //  Created by CliffLeopard on 2022/5/25.
 //
 
 import XCTest
 
-class MDRCaseUITests: XCTestCase {
+class MediaRenderUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
